@@ -17,11 +17,22 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            // // $table->string('TelefonePrincipal' , 15);
+            // $table->string('TelefoneSecundario' , 15);
+            // $table->string('Rua' , 250);
+            // $table->integer('Numero');
+            // $table->string('Bairro' , 50);
+            // $table->unsignedInteger  ('Cidade');
+            // $table->foreign('Cidade')->references('id')->on('City')->onDelete('cascade');
+            // $table->unsignedInteger  ('UserPicId');
+            // $table->foreign('UserPicId')->references('id')->on('UserPic')->onDelete('cascade');
+            // $table->boolean  ('Ativo')->default(false)->nullable();
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
+
     }
 
     /**
@@ -31,6 +42,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::drop('users');
     }
 }
