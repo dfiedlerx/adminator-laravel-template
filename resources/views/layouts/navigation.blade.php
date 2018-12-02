@@ -5,11 +5,11 @@
                   <div class="peers ai-c fxw-nw">
                     <div class="peer">
                       <div class="logo">
-                        <img src="assets/static/images/logo.png" alt="">
+                        <img style="width: 60px;" src="/img/logo.jpg" alt="">
                       </div>
                     </div>
                     <div class="peer peer-greed">
-                      <h5 class="lh-1 mB-0 logo-text">Clínica Larissa</h5>
+                      <h5 class="lh-1 mB-0 logo-text">Clínica Veterinária</h5>
                     </div>
                   </div>
                 </a>
@@ -88,20 +88,32 @@
                 </span>
               </a>
               <ul class="dropdown-menu">
+                @if(Request::is('clientes') || Request::is('clientes/*'))
+                <li style="border-right: 3px solid #efc634;" class="nav-item dropdown">
+                @else
                 <li class="nav-item dropdown">
-                  <a href="javascript:void(0);">
+                @endif  
+                  <a href="{{url('/clientes')}}">
                     <span>Clientes</span>
                   </a>
                 </li>
                
+                @if(Request::is('pets') || Request::is('pets/*'))
+                <li style="border-right: 3px solid #efc634;" class="nav-item dropdown">
+                @else
                 <li class="nav-item dropdown">
+                @endif  
                   <a href="javascript:void(0);">
                     <span>Pets</span>
                   </a>
                 </li>
 
+                @if(Request::is('users') || Request::is('users/*'))
+                <li style="border-right: 3px solid #efc634;" class="nav-item dropdown">
+                @else
                 <li class="nav-item dropdown">
-                  <a href="javascript:void(0);">
+                @endif  
+                  <a href="{{url('/users')}}">
                     <span>Usuários do sistema</span>
                   </a>
                 </li>

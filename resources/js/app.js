@@ -22,12 +22,16 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+console.log('ok');
 
-const app = new Vue({
-    el: '#app'
-});
+console.log('é lei minimizar todo o js');
+console.log('é lei minimizar todo o js');
+
+$(document).ready(function(){
+    $('#delete').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var itemid = button.data('itemid')
+        var modal = $(this)
+        modal.find('.modal-body #itemid').val(itemid);
+    });
+})
